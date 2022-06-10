@@ -8,6 +8,9 @@
             <h1><%= title %></h1>
             <a href="/profile">Profile</a>
         </div>
+        <%- include('summary', {account: account.checking}) %>
+        <%- include('summary', {account: account.savings}) %>
+        <%- include('summary', {account: account.credit}) %>
         <br>
         <a href="/transfer">Transfer</a>
         <%- include('footer') %>
