@@ -12,7 +12,7 @@ app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, 'public')))
 
 // URL Encoded Middleware
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded, {extended: true})
 
 // Read Account Data
 const accountData = fs.readFileSync('src/json/accounts.json', 'utf8')
@@ -58,6 +58,4 @@ app.post('/transfer', (req, res) => {
 })
 
 // Create a Server
-app.listen(3000, () => {
-    console.log('PS Project Running on port 3000!')
-})
+app.listen(3000);
