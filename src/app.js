@@ -11,6 +11,9 @@ app.set('view engine', 'ejs')
 // Configure the Static Directory
 app.use(express.static(path.join(__dirname, 'public')))
 
+// URL Encoded Middleware
+app.use(express.urlencoded, {extended: true})
+
 // Read Account Data
 const accountData = fs.readFileSync('src/json/accounts.json', 'utf8')
 const accounts = JSON.parse(accountData)
@@ -40,6 +43,16 @@ app.get('/credit', (req, res) => {
 // Create the Profile Route
 app.get('/profile', (req, res) => {
     res.render('profile', {user: users[0]})
+})
+
+// Create the Transfer GET Route
+app.get('/transfer', (req, res) => {
+    res.render('transfer', {user: users[0]})
+})
+
+// Create the Transfer POST Route
+app.post('/transfer', (req, res) => {
+    //
 })
 
 // Create a Server
